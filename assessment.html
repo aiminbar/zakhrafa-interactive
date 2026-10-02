@@ -1,0 +1,46 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>التقويم التجميعي</title><link rel="stylesheet" href="new.css"><style>
+.assess-visual{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:18px auto}.vopt{width:210px;min-height:170px;border:2px solid #d8c69a;border-radius:20px;background:#fff;padding:12px;cursor:pointer}.vopt svg{width:100%;height:125px}.vopt.good{border-color:#16835b;background:#e9f8ef}.vopt.bad{border-color:#b5544d;background:#fff0ee}.order{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:20px 0}.order .option{min-width:150px;touch-action:none}.dragging{opacity:.45}.order .option.picked{outline:4px solid #c99737;outline-offset:2px;background:#fff7df}.hint{font-size:.95rem;opacity:.8}.pattern{font-size:42px;letter-spacing:10px;margin:18px}.feedback{min-height:42px;font-weight:700;margin:12px}.hidden{display:none!important}
+</style></head><body><header class="hero"><img src="section-header.png" alt=""><h1>التَّقْوِيمُ التَّجْمِيعِيُّ</h1></header><div class="topbar"><a class="fab" href="index.html">🏠 الرئيسية</a><span class="spacer"></span><b>التَّقْوِيمُ التَّجْمِيعِيُّ</b></div><main class="content"><div class="card center"><h2>⭐ التَّقْوِيمُ التَّجْمِيعِيُّ</h2><div id="stars" style="font-size:34px">☆ ☆ ☆ ☆ ☆ ☆</div><div id="qs"></div><div id="final" class="hidden"><h2>🏆 أَحْسَنْتِ يَا فَنَّانَةَ الزَّخْرَفَةِ!</h2><p>أَتْمَمْتِ رِحْلَتَكِ فِي تَجْرِيدِ الْوَحْدَةِ الزُّخْرُفِيَّةِ النَّبَاتِيَّةِ وَالتَّوْرِيقِ فِي الزَّخَارِفِ الْإِسْلَامِيَّةِ. 🌿✨</p><h2>نَتِيجَتُكِ: ٦ / ٦ ⭐</h2></div></div></main>
+<script>
+let step=0; const qs=document.getElementById('qs'), starEl=document.getElementById('stars'), final=document.getElementById('final');
+const leaf=`<svg viewBox="0 0 160 120"><path d="M25 92 Q65 18 138 28 Q112 98 25 92" fill="#64a96b" stroke="#08765f" stroke-width="5"/><path d="M34 87 Q80 65 128 35" stroke="#08765f" stroke-width="4" fill="none"/></svg>`;
+const ornament=`<svg viewBox="0 0 160 120"><path d="M80 16 Q102 35 112 58 Q100 82 80 103 Q60 82 48 58 Q58 35 80 16Z" fill="#f2c9d4" stroke="#08765f" stroke-width="5"/><path d="M80 28 Q68 52 80 92 Q92 52 80 28" fill="#fffaf0" stroke="#c99737" stroke-width="4"/><path d="M48 58 Q25 48 18 69 Q39 88 62 76M112 58 Q135 48 142 69 Q121 88 98 76" fill="#64a96b" stroke="#08765f" stroke-width="4"/></svg>`;
+const flower=`<svg viewBox="0 0 160 120"><g fill="#f3a9ba" stroke="#cf6e87" stroke-width="2"><ellipse cx="80" cy="34" rx="19" ry="29"/><ellipse cx="112" cy="58" rx="19" ry="29" transform="rotate(72 112 58)"/><ellipse cx="100" cy="94" rx="19" ry="29" transform="rotate(144 100 94)"/><ellipse cx="60" cy="94" rx="19" ry="29" transform="rotate(216 60 94)"/><ellipse cx="48" cy="58" rx="19" ry="29" transform="rotate(288 48 58)"/></g><circle cx="80" cy="65" r="12" fill="#d8a735"/></svg>`;
+function stars(){starEl.textContent='⭐ '.repeat(step)+'☆ '.repeat(6-step)}
+function fb(ok){const e=document.getElementById('fb');e.textContent=ok?'أَحْسَنْتِ! ⭐':'حَاوِلِي مَرَّةً أُخْرَى 🌱';return e}
+function advance(){step++;stars();setTimeout(render,850)}
+function choice(i,ok){document.querySelectorAll('.option,.vopt').forEach(x=>x.classList.remove('good','bad'));const b=document.querySelector(`[data-i="${i}"]`);if(i===ok){b.classList.add('good');fb(true);advance()}else{b.classList.add('bad');fb(false)}}
+function textOptions(title,opts,ok,extra=''){qs.innerHTML=`<h3>${title}</h3>${extra}<div class="options">${opts.map((x,i)=>`<button class="option" data-i="${i}" onclick="choice(${i},${ok})">${x}</button>`).join('')}</div><div id="fb" class="feedback"></div>`}
+function render(){qs.innerHTML=''; if(step===6){final.classList.remove('hidden');return}
+ if(step===0)return textOptions('⭐ الْمَحَطَّةُ ① — أَخْتَارُ:<br>مَا الْمَقْصُودُ بِالتَّجْرِيدِ؟',['الِابْتِعَادُ عَنِ النَّقْلِ الْحَرْفِيِّ وَرَفْضُ الْمُحَاكَاةِ مِنْ عَنَاصِرِ الطَّبِيعَةِ.','نَقْلُ الْعُنْصُرِ كَمَا هُوَ تَمَامًا.','اِسْتِخْدَامُ الْأَشْكَالِ الْهَنْدَسِيَّةِ فَقَطْ.'],0);
+ if(step===1){qs.innerHTML=`<h3>⭐ الْمَحَطَّةُ ② — أُشَاهِدُ وَأُمَيِّزُ</h3><p>أَيُّ شَكْلٍ يُمَثِّلُ وَحْدَةً زُخْرُفِيَّةً نَبَاتِيَّةً مُجَرَّدَةً؟</p><div class="assess-visual"><button class="vopt" data-i="0" onclick="choice(0,1)">${flower}<b>زَهْرَةٌ طَبِيعِيَّةٌ</b></button><button class="vopt" data-i="1" onclick="choice(1,1)">${ornament}<b>وَحْدَةٌ زُخْرُفِيَّةٌ مُجَرَّدَةٌ</b></button><button class="vopt" data-i="2" onclick="choice(2,1)">${leaf}<b>وَرَقَةٌ طَبِيعِيَّةٌ</b></button></div><div id="fb" class="feedback"></div>`;return}
+ if(step===2){qs.innerHTML=`<h3>⭐ الْمَحَطَّةُ ③ — أُرَتِّبُ</h3><p>رَتِّبِي الْخُطُوَاتِ حَتَّى نَصِلَ إِلَى وَحْدَةٍ زُخْرُفِيَّةٍ:</p><p class="hint">اِسْحَبِي الْبِطَاقَاتِ، أَوِ اضْغَطِي عَلَى بِطَاقَةٍ ثُمَّ عَلَى أُخْرَى لِتَبْدِيلِ مَكَانَيْهِمَا.</p><div id="order" class="order"></div><button class="btn" onclick="checkOrder()">أَتَحَقَّقُ ✨</button><div id="fb" class="feedback"></div>`;setupOrder();return}
+ if(step===3){qs.innerHTML=`<h3>⭐ الْمَحَطَّةُ ④ — أَكْتَشِفُ</h3><p>أَيُّ التَّكْوِينَاتِ يُمَثِّلُ التَّوْرِيقَ فِي الزَّخْرَفَةِ؟ 🌿</p><div class="assess-visual"><button class="vopt" data-i="0" onclick="choice(0,1)"><svg viewBox="0 0 160 120"><g fill="#0b7b70"><rect x="20" y="52" width="30" height="30"/><rect x="65" y="52" width="30" height="30"/><rect x="110" y="52" width="30" height="30"/></g></svg><b>تَكْوِينٌ هَنْدَسِيٌّ</b></button><button class="vopt" data-i="1" onclick="choice(1,1)"><svg viewBox="0 0 160 120"><path d="M15 92 Q58 72 80 30 Q104 68 145 88" fill="none" stroke="#08765f" stroke-width="9"/><g transform="translate(25 35)">${leaf}</g><path d="M76 60 Q48 20 28 48M86 63 Q116 20 138 50" fill="none" stroke="#c99737" stroke-width="7"/></svg><b>تَوْرِيقٌ نَبَاتِيٌّ</b></button><button class="vopt" data-i="2" onclick="choice(2,1)">${flower}<b>زَهْرَةٌ طَبِيعِيَّةٌ</b></button></div><div id="fb" class="feedback"></div>`;return}
+ if(step===4)return textOptions('⭐ الْمَحَطَّةُ ⑤ — أُكْمِلُ النَّمَطَ:<br>تَأَمَّلِي النَّمَطَ الزُّخْرُفِيَّ… أَيُّ شَكْلٍ يُكْمِلُهُ بِصُورَةٍ صَحِيحَةٍ؟',['◆ مُعَيَّن','🌿 وَحْدَةٌ زُخْرُفِيَّةٌ نَبَاتِيَّةٌ','● دَائِرَة'],0,'<div class="pattern">🌿 ◇ 🌿 ◇ 🌿 ❓</div>');
+ if(step===5){qs.innerHTML=`<h3>⭐ الْمَحَطَّةُ ⑥ — أُطَبِّقُ</h3><p>أَيُّ تَكْوِينٍ اسْتَخْدَمَ الْوَحْدَةَ الزُّخْرُفِيَّةَ بِالتَّكْرَارِ؟</p><div class="assess-visual"><button class="vopt" data-i="0" onclick="choice(0,2)">${ornament}<b>وَحْدَةٌ وَاحِدَةٌ</b></button><button class="vopt" data-i="1" onclick="choice(1,2)">${flower}<b>زَهْرَةٌ طَبِيعِيَّةٌ</b></button><button class="vopt" data-i="2" onclick="choice(2,2)"><div style="display:flex">${ornament}${ornament}${ornament}</div><b>تَكْرَارُ الْوَحْدَةِ</b></button></div><div id="fb" class="feedback"></div>`;return}}
+let picked=null,drag=null;
+function setupOrder(){
+ const vals=['تَحْوِيرٌ','عُنْصُرٌ نَبَاتِيٌّ','وَحْدَةٌ زُخْرُفِيَّةٌ','تَبْسِيطٌ'];
+ const box=document.getElementById('order');
+ picked=null; drag=null;
+ vals.forEach(v=>{
+  let b=document.createElement('button'); b.className='option'; b.textContent=v; b.draggable=true;
+  b.addEventListener('dragstart',()=>{drag=b;b.classList.add('dragging')});
+  b.addEventListener('dragend',()=>{b.classList.remove('dragging');drag=null});
+  b.addEventListener('dragover',e=>e.preventDefault());
+  b.addEventListener('drop',e=>{e.preventDefault();if(drag&&drag!==b)swap(drag,b)});
+  // iPad/touch: tap one card, then tap another to swap them reliably.
+  const pickOrSwap=()=>{
+   if(!picked){picked=b;b.classList.add('picked')}
+   else if(picked===b){b.classList.remove('picked');picked=null}
+   else{const first=picked;swap(first,b);first.classList.remove('picked');picked=null}
+  };
+  b.addEventListener('click',pickOrSwap);
+  b.addEventListener('touchend',e=>{e.preventDefault();pickOrSwap()},{passive:false});
+  box.appendChild(b)
+ })
+}
+function swap(a,b){const p=a.parentNode,mark=document.createElement('span');p.insertBefore(mark,a);p.insertBefore(a,b);p.insertBefore(b,mark);mark.remove()}
+function checkOrder(){const a=[...document.querySelectorAll('#order .option')].map(x=>x.textContent),ok=['عُنْصُرٌ نَبَاتِيٌّ','تَبْسِيطٌ','تَحْوِيرٌ','وَحْدَةٌ زُخْرُفِيَّةٌ'];if(JSON.stringify(a)===JSON.stringify(ok)){fb(true);advance()}else fb(false)}
+stars();render();
+</script><script src="motivation.js"></script></body></html>
