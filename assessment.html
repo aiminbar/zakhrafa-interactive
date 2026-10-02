@@ -1,5 +1,19 @@
 <!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>التقويم التجميعي</title><link rel="stylesheet" href="new.css"><style>
 .assess-visual{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:18px auto}.vopt{width:210px;min-height:170px;border:2px solid #d8c69a;border-radius:20px;background:#fff;padding:12px;cursor:pointer}.vopt svg{width:100%;height:125px}.vopt.good{border-color:#16835b;background:#e9f8ef}.vopt.bad{border-color:#b5544d;background:#fff0ee}.order{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:20px 0}.order .option{min-width:150px;touch-action:none}.dragging{opacity:.45}.order .option.picked{outline:4px solid #c99737;outline-offset:2px;background:#fff7df}.hint{font-size:.95rem;opacity:.8}.pattern{font-size:42px;letter-spacing:10px;margin:18px}.feedback{min-height:42px;font-weight:700;margin:12px}.hidden{display:none!important}
+
+/* iPad / classroom assessment sizing */
+.content{max-width:1400px;margin:0 auto;padding:24px 28px}
+.content .card{min-height:620px;padding:34px 38px}
+#qs{max-width:1120px;margin:0 auto}
+#qs h3{font-size:clamp(28px,3vw,42px);line-height:1.65;margin:24px 0 14px}
+#qs p{font-size:clamp(22px,2.25vw,31px);line-height:1.75}
+#stars{font-size:clamp(42px,5vw,64px)!important;line-height:1.5;margin:10px 0 24px}
+.options{display:grid;grid-template-columns:1fr;gap:18px;max-width:1000px;margin:24px auto}
+.options .option{width:100%;min-height:82px;padding:18px 24px;font-size:clamp(20px,2vw,28px);line-height:1.6;border-radius:20px}
+.assess-visual{gap:24px;margin:28px auto}.vopt{width:min(30%,300px);min-width:230px;min-height:260px;padding:18px;font-size:22px}.vopt svg{height:185px}.vopt b{display:block;margin-top:12px;font-size:21px;line-height:1.5}
+.order{gap:18px;margin:28px auto;max-width:1100px}.order .option{min-width:220px;min-height:78px;padding:15px 20px;font-size:24px}
+.hint{font-size:20px}.pattern{font-size:58px;letter-spacing:16px;margin:28px}.feedback{min-height:56px;font-size:25px;margin:18px}.btn{font-size:23px;padding:15px 30px}
+@media(max-width:800px){.content{padding:16px}.content .card{padding:24px 18px}.vopt{width:100%;max-width:520px}.assess-visual{flex-direction:column;align-items:center}.pattern{font-size:44px;letter-spacing:8px}}
 </style></head><body><header class="hero"><img src="section-header.png" alt=""><h1>التَّقْوِيمُ التَّجْمِيعِيُّ</h1></header><div class="topbar"><a class="fab" href="index.html">🏠 الرئيسية</a><span class="spacer"></span><b>التَّقْوِيمُ التَّجْمِيعِيُّ</b></div><main class="content"><div class="card center"><h2>⭐ التَّقْوِيمُ التَّجْمِيعِيُّ</h2><div id="stars" style="font-size:34px">☆ ☆ ☆ ☆ ☆ ☆</div><div id="qs"></div><div id="final" class="hidden"><h2>🏆 أَحْسَنْتِ يَا فَنَّانَةَ الزَّخْرَفَةِ!</h2><p>أَتْمَمْتِ رِحْلَتَكِ فِي تَجْرِيدِ الْوَحْدَةِ الزُّخْرُفِيَّةِ النَّبَاتِيَّةِ وَالتَّوْرِيقِ فِي الزَّخَارِفِ الْإِسْلَامِيَّةِ. 🌿✨</p><h2>نَتِيجَتُكِ: ٦ / ٦ ⭐</h2></div></div></main>
 <script>
 let step=0; const qs=document.getElementById('qs'), starEl=document.getElementById('stars'), final=document.getElementById('final');
